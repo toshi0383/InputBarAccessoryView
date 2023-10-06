@@ -402,9 +402,11 @@ open class InputBarAccessoryView: UIView {
     
     /// Adds the required notification observers
     private func setupObservers() {
+        #if os(iOS)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(InputBarAccessoryView.orientationDidChange),
                                                name: UIDevice.orientationDidChangeNotification, object: nil)
+        #endif
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(InputBarAccessoryView.inputTextViewDidChange),
                                                name: UITextView.textDidChangeNotification, object: inputTextView)

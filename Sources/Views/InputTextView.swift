@@ -121,6 +121,7 @@ open class InputTextView: UITextView {
         }
     }
     
+    #if os(iOS)
     open override var scrollIndicatorInsets: UIEdgeInsets {
         didSet {
             // When .zero a rendering issue can occur
@@ -132,7 +133,8 @@ open class InputTextView: UITextView {
             }
         }
     }
-    
+    #endif
+
     /// A weak reference to the InputBarAccessoryView that the InputTextView is contained within
     open weak var inputBarAccessoryView: InputBarAccessoryView?
     
@@ -195,10 +197,12 @@ open class InputTextView: UITextView {
     /// Adds a notification for .UITextViewTextDidChange to detect when the placeholderLabel
     /// should be hidden or shown
     private func setupObservers() {
-        
+
+        #if os(iOS)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(InputTextView.redrawTextAttachments),
                                                name: UIDevice.orientationDidChangeNotification, object: nil)
+        #endif
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(InputTextView.textViewTextDidChange),
                                                name: UITextView.textDidChangeNotification, object: nil)

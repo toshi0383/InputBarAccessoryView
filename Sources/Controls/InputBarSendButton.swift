@@ -48,7 +48,7 @@ open class InputBarSendButton: InputBarButtonItem {
         if #available(iOS 13.0, *) {
             view = UIActivityIndicatorView(style: .medium)
         } else {
-            view = UIActivityIndicatorView(style: .gray)
+            view = UIActivityIndicatorView(style: .large)
         }
         
         view.isUserInteractionEnabled = false

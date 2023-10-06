@@ -41,7 +41,7 @@ open class AttachmentCell: UICollectionViewCell {
         if #available(iOS 13, *) {
             view.backgroundColor = .systemGray6
         } else {
-            view.backgroundColor = .groupTableViewBackground
+            view.backgroundColor = .gray
         }
         view.layer.cornerRadius = 8
         view.clipsToBounds = true
